@@ -67,6 +67,10 @@ source ../../install/setup.sh
 ros2 launch livox_ros_driver2 [launch file]
 ```
 
+A rviz launch example for HAP LiDAR would be:
+```
+ros2 launch livox_ros_driver2 rviz_HAP_launch.py
+```
 
 
 
