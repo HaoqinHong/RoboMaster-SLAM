@@ -73,7 +73,7 @@ ros2 launch livox_ros_driver2 rviz_HAP_launch.py
 ```
 
 #### 5.安装必须的库
-使用mid360和Point lio进行导航部署
+使用mid360和Point lio进行导航部署需安装以下库
 ```
 sudo apt-get install ros-noetic-pcl-conversions
 sudo apt-get install libeigen3-dev
