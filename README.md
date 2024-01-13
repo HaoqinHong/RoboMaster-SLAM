@@ -25,8 +25,11 @@ make
 sudo make install
 ```
 
-如果 cmake 编译报错，可以在 /home/Livox-SDK/sdk_core/src/base 的 io_thread.h 文件夹中加入头文件 #include <memory>
+如果 cmake 编译报错，可以在 /home/Livox-SDK/sdk_core/src/base 的 io_thread.h 文件夹中加入头文件 
 
+```
+#include <memory>
+```
 
 #### 3.编译livox_ros_driver2
 官方地址：https://github.com/Livox-SDK/livox_ros_driver2
