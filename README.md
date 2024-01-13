@@ -73,6 +73,7 @@ ros2 launch livox_ros_driver2 rviz_HAP_launch.py
 ```
 
 #### 5.安装必须的库
+打开github库中的sentry_ros_3d或已经下载到本地的代码打开“rosenvironment.sh"文件
 使用mid360和Point lio进行导航部署需安装以下库
 ```
 sudo apt-get install ros-noetic-pcl-conversions
