@@ -52,6 +52,19 @@ source /opt/ros/humble/setup.sh
 ./build.sh humble
 ```
 
-血的教训，一定要退出 Anaconda （conda deactivate），debug 了很久才发现问题！
+血的教训，一定要退出 Anaconda，debug 了很久才发现问题！
+
+```
+conda deactivate
+```
+
+#### 4.运行Livox ROS Driver 2
+```
+source ../../install/setup.sh
+ros2 launch livox_ros_driver2 [launch file]
+```
+
+
+
 
 
