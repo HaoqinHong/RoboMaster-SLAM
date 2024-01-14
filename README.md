@@ -95,5 +95,28 @@ sudo apt-get install ros-humble-octomap-rviz-plugins
 sudo apt-get install ros-humble-move-base-flex
 ```
 
+#### 6.创建用于C板虚拟串口的udev别名
+打开代码目录sentry_ros_3d/src/simple_robot/udev输入以下命令
+```
+sudo sh setup.sh
+```
+
+#### 7. 编译构建
+按顺序执行以下命令
+```
+catkin_make -DCATKIN_WHITELIST_PACKAGES="robot_msgs"
+catkin_make -DCATKIN_WHITELIST_PACKAGES="livox_ros_driver2"
+catkin_make -DCATKIN_WHITELIST_PACKAGES="livox_ros_driver"
+catkin_make -DCATKIN_WHITELIST_PACKAGES="fast_lio"
+catkin_make -DCATKIN_WHITELIST_PACKAGES=""
+```
+
+如果 catkin 报错没有安装依赖，可能不是 catkin 的问题，而是虚拟环境没有配置
+```
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+source ~/.bashrc
+catkin_init_workspace
+
+```
 
 
