@@ -63,7 +63,7 @@ sudo docker images
 
 执行命令利用上一步创建的镜像来创建容器：（其中 -v$(pwd):/data参数是指将当前目录挂载到ROS容器根目录data文件夹下，可以用来和宿主机进行文件交换）
 ```
-sudo docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY ros1 bash
+sudo docker run --privileged --name my_ros_container -it -v /dev:/dev -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/phoenixkite-nuc/桌面:/ws_ros -e DISPLAY=$DISPLAY --network host ros1 bash
 ```
 
 ##### 新开一个终端，进入容器然后开始操作
@@ -72,6 +72,12 @@ sudo docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY ros1 ba
 sudo docker ps -a
 ```
 
+```
+sudo docker exec -it [CONTAINER ID] bash
+source ros_entrypoint.sh
+roscore &
+rviz
+```
 
 
 #### 2. 编译Livox-SDK2
