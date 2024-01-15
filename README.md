@@ -183,7 +183,7 @@ sudo sh setup.sh
 
 #### 8. 编译构建
 colcon是ROS构建工具catkin_make、catkin_make_isolated、catkin_tools和ament_tools的迭代。colcon目标是做一个通用构建工具（universal build tool），能够构建ROS1和ROS2的包，同时也能够构建一些非ROS包。ROS中，catkin_make、catkin_make_isolated、catkin_tools、ament_tools将逐步被colcon取代
-按顺序执行以下命令
+在 sentry_ros_3d 打开终端按顺序执行以下命令
 ```
 catkin_make -DCATKIN_WHITELIST_PACKAGES="robot_msgs"
 catkin_make -DCATKIN_WHITELIST_PACKAGES="livox_ros_driver2"
@@ -192,10 +192,16 @@ catkin_make -DCATKIN_WHITELIST_PACKAGES="fast_lio"
 catkin_make -DCATKIN_WHITELIST_PACKAGES=""
 ```
 
-如果 catkin 报错没有安装依赖，可能不是 catkin 的问题，而是虚拟环境没有配置
+如果报错
 ```
-echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
-source ~/.bashrc
+CMake Error at CMakeLists.txt:1:
+  Parse error.  Expected a command name, got unquoted argument with text
+  "/opt/ros/noetic/share/catkin/cmake/toplevel.cmake".
+```
+
+进入 src 中删除 CMakeList.txt,然后打开终端执行：
+
+```
 catkin_init_workspace
 
 ```
