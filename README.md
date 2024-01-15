@@ -15,8 +15,63 @@ curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 
 ##### 拉取 Docker + ROS Noetic 的虚拟环境
 ```
-docker pull ros:noetic
+sudo docker pull osrf/ros:noetic-desktop-full
 ```
+
+查看是否安装成功
+```
+sudo docker images
+```
+
+##### 新建 ROS Noetic 的 Docker 容器
+
+由于第一步安装的ROS是没有实际项目所需要的环境依赖，所以我们需要编写一个Dockerfile文件，用这个文件重新创建一个带依赖的ROS镜像。 
+
+该文件随便放一个文件夹：
+```
+touch Dockerfile
+```
+
+dockerfile文件内容如下：
+```
+FROM osrf/ros:noetic-desktop-full
+ 
+# 如果机器带显卡，可以放开这里，我没用到，所以注释了
+# ENV NVIDIA_VISIBLE_DEVICES \
+# ${NVIDIA_VISIBLE_DEVICES:-all}
+ 
+# ENV NVIDIA_DRIVER_CAPABILITIES \
+# ${NVIDIA_DRIVER_CAPABILITIES:+$NVIDIA_DRIVER_CAPABILITIES,}graphics
+ 
+# 自己需要什么依赖在这里加即可
+RUN apt-get update && \
+apt-get install -y \
+libeigen3-dev \
+libgoogle-glog-dev \
+vim
+```
+
+在该文件路径下，打开终端，执行命令：（其中 ros1 为镜像的名称，可自定义）
+```
+sudo docker build -f Dockerfile -t ros1 .
+```
+
+执行完后用命令查看是否成功创建 ros1 这个镜像，有这个镜像则成功
+```
+sudo docker images
+```
+
+执行命令利用上一步创建的镜像来创建容器：（其中 -v$(pwd):/data参数是指将当前目录挂载到ROS容器根目录data文件夹下，可以用来和宿主机进行文件交换）
+```
+sudo docker run -it -v /tmp/.X11-unix:/tmp/.X11-unix -e DISPLAY=$DISPLAY ros1 bash
+```
+
+##### 新开一个终端，进入容器然后开始操作
+查看容器ID及状态：
+```
+sudo docker ps -a
+```
+
 
 
 #### 2. 编译Livox-SDK2
