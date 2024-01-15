@@ -149,7 +149,7 @@ roslaunch livox_ros_driver2 [launch file]
 
 A rviz launch example for HAP LiDAR would be:
 ```
-roslaunch livox_ros_driver2 rviz_HAP_launch.py
+roslaunch livox_ros_driver2 rviz_HAP.launch
 ```
 
 #### 6.安装必须的库
