@@ -102,6 +102,7 @@ sudo sh setup.sh
 ```
 
 #### 7. 编译构建
+colcon是ROS构建工具catkin_make、catkin_make_isolated、catkin_tools和ament_tools的迭代。colcon目标是做一个通用构建工具（universal build tool），能够构建ROS1和ROS2的包，同时也能够构建一些非ROS包。ROS中，catkin_make、catkin_make_isolated、catkin_tools、ament_tools将逐步被colcon取代
 按顺序执行以下命令
 ```
 catkin_make -DCATKIN_WHITELIST_PACKAGES="robot_msgs"
