@@ -1,6 +1,25 @@
 ### 基于 Point-Lio 和 Mid360 的哨兵导航方案
 
-#### 1. 编译Livox-SDK2
+#### Ubuntu 22.04
+
+#### 1.Docker 部署 ROS Noetic
+因为 ROS 是面向操作系统的语言，所以 ROS1 只适配 Ubuntu 20.04 及以下的版本， Ubuntu 22.04 只适配 ROS2 （ROS Humble）的版本，而 ROS 依赖的版本向下兼容比较糟糕，而目前的 SLAM 算法大部分都是基于 ROS1 的项目，所以建议采用 Docker 的方法来在 Ubuntu 22.04 上部署 ROS1。
+
+
+##### Docker 官方安装文档：https://docs.docker.com/engine/install/ubuntu/
+使用阿里云一键安装：
+
+```
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
+```
+
+##### 拉取 Docker + ROS Noetic 的虚拟环境
+```
+docker pull ros:noetic
+```
+
+
+#### 2. 编译Livox-SDK2
 官方地址：https://github.com/Livox-SDK/Livox-SDK2
 
 ```
@@ -12,7 +31,7 @@ cmake .. && make
 sudo make install
 ```
 
-#### 2.安装Livox-SKD
+#### 3.安装Livox-SKD
 官方地址：https://github.com/Livox-SDK/Livox-SDK.git
 
 退出到 home 目录再输入以下命令：
@@ -31,7 +50,7 @@ sudo make install
 #include <memory>
 ```
 
-#### 3.编译livox_ros_driver2
+#### 4.编译livox_ros_driver2
 官方地址：https://github.com/Livox-SDK/livox_ros_driver2
 
 ```
@@ -61,7 +80,7 @@ source /opt/ros/humble/setup.sh
 conda deactivate
 ```
 
-#### 4.运行Livox ROS Driver 2
+#### 5.运行Livox ROS Driver 2
 ```
 source ../../install/setup.sh
 ros2 launch livox_ros_driver2 [launch file]
@@ -72,7 +91,7 @@ A rviz launch example for HAP LiDAR would be:
 ros2 launch livox_ros_driver2 rviz_HAP_launch.py
 ```
 
-#### 5.安装必须的库
+#### 6.安装必须的库
 打开github库中的sentry_ros_3d或已经下载到本地的代码打开“rosenvironment.sh"文件
 
 使用mid360和Point lio进行导航部署需安装以下库
@@ -95,13 +114,13 @@ sudo apt-get install ros-humble-octomap-rviz-plugins
 sudo apt-get install ros-humble-move-base-flex
 ```
 
-#### 6.创建用于C板虚拟串口的udev别名
+#### 7.创建用于C板虚拟串口的udev别名
 打开代码目录sentry_ros_3d/src/simple_robot/udev输入以下命令
 ```
 sudo sh setup.sh
 ```
 
-#### 7. 编译构建
+#### 8. 编译构建
 colcon是ROS构建工具catkin_make、catkin_make_isolated、catkin_tools和ament_tools的迭代。colcon目标是做一个通用构建工具（universal build tool），能够构建ROS1和ROS2的包，同时也能够构建一些非ROS包。ROS中，catkin_make、catkin_make_isolated、catkin_tools、ament_tools将逐步被colcon取代
 按顺序执行以下命令
 ```
