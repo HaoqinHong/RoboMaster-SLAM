@@ -132,7 +132,7 @@ sudo make install
 
 ```
 source /opt/ros/noetic/setup.sh
-./build.sh noetic
+./build.sh ROS1
 ```
 
 血的教训，一定要退出 Anaconda，debug 了很久才发现问题！
