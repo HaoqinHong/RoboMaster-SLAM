@@ -105,7 +105,7 @@ make
 sudo make install
 ```
 
-如果 cmake 编译报错，可以在 /home/Livox-SDK/sdk_core/src/base 的 io_thread.h 文件夹中加入头文件 
+如果 cmake 编译报错，可以在 /home/Livox-SDK/sdk_core/src/base 的 thread_base.h 文件夹中加入头文件 
 
 ```
 #include <memory>
