@@ -131,8 +131,8 @@ sudo make install
 然后终端进入到/src/livox_ros_driver2目录下
 
 ```
-source /opt/ros/humble/setup.sh
-./build.sh humble
+source /opt/ros/noetic/setup.sh
+./build.sh noetic
 ```
 
 血的教训，一定要退出 Anaconda，debug 了很久才发现问题！
@@ -157,22 +157,22 @@ ros2 launch livox_ros_driver2 rviz_HAP_launch.py
 
 使用mid360和Point lio进行导航部署需安装以下库
 ```
-sudo apt-get install ros-humble-pcl-conversions
+sudo apt-get install ros-noetic-pcl-conversions
 sudo apt-get install libeigen3-dev
-sudo apt-get install ros-humble-serial
-sudo apt-get install ros-humble-move-base-msgs
-sudo apt-get install ros-humble-move-base
-sudo apt-get install ros-humble-map-server
-sudo apt-get install ros-humble-global-planner
-sudo apt-get install ros-humble-laser-filters
-sudo apt-get install ros-humble-teb-local-planner
-sudo apt-get install ros-humble-dwa-local-planner
-sudo apt-get install ros-humble-tf2-sensor-msgs
-sudo apt-get install ros-humble-octomap-ros #安装octomap
-sudo apt-get install ros-humble-octomap-msgs
-sudo apt-get install ros-humble-octomap-server
-sudo apt-get install ros-humble-octomap-rviz-plugins
-sudo apt-get install ros-humble-move-base-flex
+sudo apt-get install ros-noetic-serial
+sudo apt-get install ros-noetic-move-base-msgs
+sudo apt-get install ros-noetic-move-base
+sudo apt-get install ros-noetic-map-server
+sudo apt-get install ros-noetic-global-planner
+sudo apt-get install ros-noetic-laser-filters
+sudo apt-get install ros-noetic-teb-local-planner
+sudo apt-get install ros-noetic-dwa-local-planner
+sudo apt-get install ros-noetic-tf2-sensor-msgs
+sudo apt-get install ros-noetic-octomap-ros #安装octomap
+sudo apt-get install ros-noetic-octomap-msgs
+sudo apt-get install ros-noetic-octomap-server
+sudo apt-get install ros-noetic-octomap-rviz-plugins
+sudo apt-get install ros-noetic-move-base-flex
 ```
 
 #### 7.创建用于C板虚拟串口的udev别名
@@ -194,7 +194,7 @@ catkin_make -DCATKIN_WHITELIST_PACKAGES=""
 
 如果 catkin 报错没有安装依赖，可能不是 catkin 的问题，而是虚拟环境没有配置
 ```
-echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+echo "source /opt/ros/noetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 catkin_init_workspace
 
