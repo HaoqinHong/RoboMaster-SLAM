@@ -1,0 +1,4 @@
+int16 pwm1
+int16 pwm2
+---
+int8 result

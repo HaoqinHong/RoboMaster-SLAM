@@ -1,0 +1,22 @@
+<launch>
+  <include file="$(find sentry_navigation)/launch/sentry_start.launch" />
+
+  <node name='pointcloud_filter' pkg="sentry_navigation" type="pointcloud2_filter"/>
+
+  <include file="$(find point_lio)/launch/mapping_mid360.launch"/>
+  
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find sentry_navigation)/rviz/amcl3d.rviz" /> 
+
+  <node name='odom_trans' pkg="sentry_navigation" type="odom_transform"/>
+  <node name='vision_trans' pkg="sentry_navigation" type="vision_transform"/>
+
+    <!-- 设置需要用于导航的地图 -->
+  <arg name="map_file" default="$(env HOME)/sentry_3d_map_file/map/rmuc.yaml"/> 
+  <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)">
+  <param name="frame_id" value="map" />
+  </node> 
+
+  <include file="$(find sentry_navigation)/launch/move_base_flex.launch" />
+
+  <node name='mbf_goal_bridge' pkg="sentry_navigation" type="mbf_action_bridge" output="screen"/>
+</launch>

@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package format="2">
+    <name>simple_robot</name>
+    <version>0.1.0</version>
+    <description>A robot ROS packages for RoboMaster 2019 Summer Camp </description>
+    <maintainer email="charles.yang@dji.com">Charles Yang</maintainer>
+    <license>BSD</license>
+    <url type="website">https://github.com/robomaster</url>
+    <author email="charles.yang@dji.com">Peter Fankhauser</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>message_filters</build_depend>
+  <build_depend>robot_msgs</build_depend>
+
+  <build_export_depend>roscpp</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <build_export_depend>rosconsole</build_export_depend>
+  <build_export_depend>sensor_msgs</build_export_depend>
+  <build_export_depend>message_filters</build_export_depend>
+  
+  <exec_depend>roscpp</exec_depend>
+  <exec_depend>stdmsgs</exec_depend>
+  <exec_depend>rosconsole</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>message_filters</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <exec_depend>robot_msgs</exec_depend>
+
+  <exec_depend>message_runtime</exec_depend>
+  
+    
+  <depend>tf</depend>
+  <depend>nav_msgs</depend>
+  <depend>geometry_msgs</depend>
+
+  <export>
+  </export>
+</package>

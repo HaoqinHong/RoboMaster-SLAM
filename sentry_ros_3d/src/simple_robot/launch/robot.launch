@@ -1,0 +1,5 @@
+<launch>
+   <node pkg="simple_robot" type="simple_robot" name="simple_robot" respawn="true"/>
+    <!-- <node pkg="simple_robot" type="simple_robot" name="simple_robot" respawn="true" output="screen"/>  -->
+  
+</launch>

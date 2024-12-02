@@ -1,0 +1,5 @@
+_workspace_packages=( ${(Q)"${(z)$(<<\EO:_workspace_packages
+'behaviour' 'laser_filters' 'livox_ros_driver' 'fast_lio' 'livox_ros_driver2' 'local_planner' 'mv_camera' 'pointcloud_to_laserscan' 'robot_msgs' 'robot_detection' 'robot_pose_ekf' 'rosinrange_msg' 'amcl3d' 'sentry_navigation' 'sentry_start' 'simple_robot' 'terrain_analysis' 'terrain_analysis_ext' 'visualization_tools' 'waypoint_rviz_plugin'
+EO:_workspace_packages
+)}"} )
+_workspace_cache_file_path='/home/hanjiang/sentry_ros_3d/.catkin_tools/cache'

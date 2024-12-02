@@ -1,0 +1,11 @@
+float32 vx
+float32 vy
+float32 vw
+float32 yaw
+float32 pitch
+int8 target_lock
+int8 fire_command
+int8 aim_id
+int8 spin_command
+int32 left_patrol_angle
+int32 right_patrol_angle

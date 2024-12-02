@@ -1,0 +1,22 @@
+<launch>
+    <include file="$(find sentry_navigation)/launch/sentry_navigation_competition.launch" />
+    <!-- <node pkg="sentry_navigation" type="init_pose" name="init_pose_change" output ="screen" /> -->
+    <node pkg="behaviour" name="behavior_tree" type="lianmemgTrees.py" />
+    <node 
+    name="mv_camera_pub" 
+    pkg="mv_camera" 
+    type="mv_camera" 
+    respawn="true"
+    >
+    <remap from="/mv_camera_pub/image_raw" to="/image_raw" />
+  </node>
+
+  <node 
+    name="mv_camera_sub" 
+    pkg="robot_detection" 
+    type="robot_detection" 
+    
+    respawn="true"
+    > 
+  </node>
+</launch>
