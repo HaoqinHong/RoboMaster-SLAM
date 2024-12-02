@@ -1,0 +1,6 @@
+recovery_behaviors:
+  - name: clear_costmap_recovery
+    type: clear_costmap_recovery/ClearCostmapRecovery
+    reset_distance: 3.0
+    layer: obstacles
+    recovery_behavior_enabled: true

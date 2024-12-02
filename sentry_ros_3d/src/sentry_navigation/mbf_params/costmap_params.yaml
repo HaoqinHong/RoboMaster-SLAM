@@ -1,0 +1,98 @@
+global_costmap:
+  plugins:
+    - { name: static_layer,    type: "costmap_2d::StaticLayer" }
+    - { name: obstacle_layer,  type: "costmap_2d::ObstacleLayer" }
+    - { name: inflation_layer, type: "costmap_2d::InflationLayer" }
+
+  track_unknown_space: false
+  global_frame: map
+  robot_base_frame: base_footprint
+  map_type: costmap
+  footprint: [[-0.342,-0.250], [0.342,-0.250],[0.342,0.250],[-0.342,0.250]]
+  footprint_padding: 0.05
+  inscribed_radius: 0.35
+  circumscribed_radius: 0.35
+
+  update_frequency: 1.0
+  publish_frequency: 1.0
+  transform_tolerance: 1.0
+
+  static_map: false
+  always_send_full_costmap: false
+  resolution: 0.05
+
+  static_layer:
+    map_topic: /map
+    track_unknown_space: false
+    #是否订阅话题 “map_topic”+“_updates”
+    subscribe_to_updates: true
+    #如果设置为false，地图话题中的未知区域在代价地图中会转换为自由区域
+    track_unknown_space: false
+    #如果设置为true，静态层代价地图只有未知、自由和完全占用三种情况
+    #如果设置为false，静态层代价地图可以有不同的占用程度
+    trinary_costmap: false
+
+
+  obstacle_layer:
+    observation_sources: 3dscan
+    3dscan: { sensor_frame: livox_frame, data_type: PointCloud2, topic: livox_pcl_filter, obstacle_range: 3.0, raytrace_range: 3.0, observation_persistence: 0.5, marking: true, clearing: true,  min_obstacle_height: 0.3, max_obstacle_height: 1 }
+    track_unknown_space: false
+    inflation_option: 3
+    combination_method: 1
+
+  # #如果障碍层类型是"costmap_2d::VoxelLayer"，可以对以下参数进行设置
+  # VoxelLayer:
+  # #代价地图的高度
+  #   origin_z: 1.0
+  # #障碍层的Z轴方格的高度
+  #   z_resolution: 0.3
+  # #障碍层Z轴上有几个方格
+  #   z_voxels: 10
+  # #被认为是“已知”的列中允许的未知单元格数
+  #   unknown_threshold: 15
+  # #被认为是“自由”的列中允许的标记单元格数
+  #   mark_threshold: 0
+  # #是否发布障碍层的投影地图层话题
+  #   publish_voxel_map: true
+  # #如果设置为true，机器人将把它所经过的空间标记为自由区域
+  #   footprint_clearing_enabled: true
+
+
+  inflation_layer:
+    inflation_radius: 0.2
+    cost_scaling_factor: 10
+
+local_costmap:
+  plugins:
+    - { name: obstacle_layer,  type: "costmap_2d::ObstacleLayer" }
+    - { name: inflation_layer, type: "costmap_2d::InflationLayer" }
+
+  global_frame: map
+  robot_base_frame: base_footprint
+  map_type: costmap
+  footprint: [[-0.342,-0.250], [0.342,-0.250],[0.342,0.250],[-0.342,0.250]]
+  footprint_padding: 0.05
+  inscribed_radius: 0.35
+  circumscribed_radius: 0.35
+  
+  update_frequency: 1.0
+  publish_frequency: 1.0
+  transform_tolerance: 1.0
+
+  static_map: false
+  rolling_window: true
+  width: 10
+  height: 10
+  resolution: 0.05
+
+
+  obstacle_layer:
+    observation_sources: 3dscan
+    3dscan: { sensor_frame: livox_frame, data_type: PointCloud2, topic: livox_pcl_filter, obstacle_range: 10.0, raytrace_range: 10.0,observation_persistence: 0.5, marking: true, clearing: true,  min_obstacle_height: 0.3, max_obstacle_height: 1 }
+    track_unknown_space: false
+    inflation_option: 3
+    combination_method: 1
+
+  inflation_layer:
+    inflation_radius: 0.1
+    cost_scaling_factor: 10

@@ -1,0 +1,12 @@
+<launch>
+<!-- move_base_flex -->
+    <node pkg="mbf_costmap_nav" type="mbf_costmap_nav" respawn="true" name="move_base_flex" output="screen">
+        <rosparam file="$(find sentry_navigation)/mbf_params/costmap_params.yaml" command="load" />
+        <rosparam file="$(find sentry_navigation)/mbf_params/base_global_planner_params.yaml" command="load" />
+        <rosparam file="$(find sentry_navigation)/mbf_params/move_base_flex_params.yaml" command="load" />
+        <rosparam file="$(find sentry_navigation)/mbf_params/recovery_behavior_params.yaml" command="load" />
+        <rosparam file="$(find sentry_navigation)/mbf_params/eband_local_planner_params.yaml" command="load" />
+        <!-- <rosparam file="$(find sentry_navigation)/mbf_params/costmap_converter_params.yaml" command="load" /> -->
+        <remap from="odom" to="odom"/>
+    </node>
+</launch>

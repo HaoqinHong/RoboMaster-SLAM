@@ -1,0 +1,9 @@
+uint8 command_info
+uint8 game_state
+uint16 our_outpost_hp
+uint16 enemy_outpost_hp
+uint16 remain_bullet
+uint16 radar_info
+float32 goal_point_x
+float32 goal_point_y
+float32 goal_point_z
