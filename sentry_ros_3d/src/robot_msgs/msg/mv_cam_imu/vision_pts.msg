@@ -1,3 +1,0 @@
-geometry_msgs/PointStamped pt_aim
-geometry_msgs/PointStamped pt_aim_pre
-geometry_msgs/PointStamped pt_aim_singer
