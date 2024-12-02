@@ -1,4 +1,4 @@
-### 基于 Point-Lio 和 Mid360 的哨兵导航方案
+### 基于 Point-Lio 和 Mid360 的 Docker + ROS 哨兵导航方案
 #### For RMUL 2024, shared by Haoqin Hong@SWU GKD
 
 #### Ubuntu 22.04
