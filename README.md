@@ -1,5 +1,6 @@
 ### 基于 Point-Lio 和 Mid360 的哨兵导航方案
 #### For RMUL 2024, shared by Haoqin Hong@SWU GKD
+#### 我们在本赛季采用的边缘计算设备从 Nvidia Jetson NX 改为了 NUC，这意味着我们不能采用需要 GPU CUDA 加速的部署方案，同时由于 CPU 的多线程优势，采用 ROS 来进行线程分配是很有必要的。
 
 #### Ubuntu 22.04
 
