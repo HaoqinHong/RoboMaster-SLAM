@@ -1,6 +1,6 @@
 # sentry_ros
 
-参考深圳技术大学 "悍匠" 战队开源的哨兵 ROS 代码部分 
+参考深圳技术大学 "悍匠" 战队开源的哨兵 ROS 代码部分，并且集成了了 Fast-Lio 等 SLAM 建图方案。
 
 使用Robomaster-C型开发板上的虚拟串口功能使用 simple-robot 功能包进行与嵌入式下位机的通讯
 
