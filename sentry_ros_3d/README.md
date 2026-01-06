@@ -1,8 +1,8 @@
 # sentry_ros
 
-悍匠哨兵——ROS代码部分 🤣 👉 🤡
+参考深圳技术大学 "悍匠" 战队开源的哨兵 ROS 代码部分 
 
-使用Robomaster-C型开发板上的虚拟串口功能使用“simple-robot”功能包进行与嵌入式下位机的通讯
+使用Robomaster-C型开发板上的虚拟串口功能使用 simple-robot 功能包进行与嵌入式下位机的通讯
 
 可能会需要的与底层的接口有： 
 
